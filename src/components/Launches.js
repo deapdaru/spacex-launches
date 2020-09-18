@@ -8,7 +8,7 @@ import CardActionArea from '@material-ui/core/CardActionArea';
 import CardMedia from '@material-ui/core/CardMedia';
 import { CardHeader, Grid } from '@material-ui/core';
 
-const styles = theme => ({
+const styles = () => ({
   card: {
     backgroundColor: "#ddd",
   }
@@ -16,16 +16,16 @@ const styles = theme => ({
 
 class Launches extends Component {
     render() {
-        const { classes, theme } = this.props;
+        const { classes } = this.props;
         const options = { year: 'numeric', month: 'long', day: 'numeric' };
-
+        
         return this.props.launches.map((launch) => (
-            <Grid item xs={12} sm={6} md={4} lg={3}>
-                <Link style={linkStyle} key={launch.flight_number} to={"/" + launch.flight_number}>
+            <Grid item xs={12} sm={6} md={4} lg={3} key={launch.flight_number}>
+                <Link style={linkStyle} to={"/" + launch.flight_number}>
                     <Card variant="outlined" className={classes.card}>
                         <CardActionArea>
                             <CardHeader title={launch.mission_name} subheader={new Date(launch.launch_date_unix*1000).toLocaleDateString("en-GB", options)}/>
-                            <CardMedia style={mediaImg} component="img" alt={launch.mission_name} image={launch.links.mission_patch} title={launch.mission_name} /> 
+                            <CardMedia style={mediaImg} component="img" alt={launch.mission_name} src={launch.links.mission_patch} title={launch.mission_name} /> 
                         </CardActionArea>
                     </Card>
                 </Link>

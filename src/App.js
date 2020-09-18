@@ -7,11 +7,11 @@ import Footer from './components/layout/Footer';
 import axios from 'axios';
 import './App.css';
 import { withStyles } from "@material-ui/core/styles";
-import { Grid } from '@material-ui/core';
+import { Button, Grid } from '@material-ui/core';
 
-const styles = theme => ({
+const styles = () => ({
   grid: {
-    padding: "40px",
+    padding: "20px 40px 0",
   }
 });
 
@@ -25,21 +25,34 @@ class App extends Component {
   };
 
   getLaunches = async () => {
-    let response = await axios.get("https://api.spacexdata.com/v3/launches?limit=10");
+    let response = await axios.get("https://api.spacexdata.com/v3/launches?limit=15");
     // console.log(response.data);
     this.setState({ launches: response.data })
   }
 
+  // reverseLaunches = () => {
+  //   let reverseArray = [];
+  //   for (let i = 0; i < this.state.launches.length; i++) {
+  //     reverseArray[i] = this.state.launches[this.state.launches.length - i - 1];
+  //   }
+  //   this.setState({ launches: reverseArray })
+  // }
+
   render() {
-    const { classes, theme } = this.props;
+    const { classes } = this.props;
     return (
       <Router>
         <Header />
         <Switch>
           <Route exact path='/' render={props => (
-            <Grid container spacing={3} className={classes.grid} justify="center">
-              <Launches launches={this.state.launches} />
-            </Grid>
+            <div>
+              <div style={{padding: "20px 40px 0"}}>
+                <Button variant="outlined" color="primary">Filter</Button>
+              </div>
+              <Grid container spacing={3} className={classes.grid} justify="center">
+                <Launches launches={this.state.launches} />
+              </Grid>
+            </div>
           )} />
           <Route path="/:flight_number" component={LaunchPage} />
         </Switch>
