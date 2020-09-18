@@ -7,6 +7,10 @@ class LaunchDetails extends Component {
         const launchStyle = {
             color: this.props.launch.launch_success ? "#4caf50" : "#f44336"
         }
+
+        const detailsStyle = {
+            display: this.props.launch.details !== null ? "block" : "none"
+        }
         return (
             <Grid container>
                 <Grid item xs={1}></Grid>
@@ -18,6 +22,7 @@ class LaunchDetails extends Component {
                             <Typography variant="body1">{"Name of the rocket launched was " + (this.props.launch.rocket !== undefined ? this.props.launch.rocket.rocket_name : "") + "."}</Typography>
                             <Typography variant="body1">{"Name of the launch site was " + (this.props.launch.launch_site !== undefined ? (this.props.launch.launch_site.site_name_long + " (" + this.props.launch.launch_site.site_name + ")") : "") + "."}</Typography>
                             <Typography variant="body2" style={launchStyle}>{"Launch Status: " + (this.props.launch.launch_success ? "Success!" : "Failure!")}</Typography>
+                            <Typography variant="body1" style={detailsStyle}>{"Details of the launch: " + this.props.launch.details}</Typography>
                         </CardContent>
                     </Card>
                 </Grid>
