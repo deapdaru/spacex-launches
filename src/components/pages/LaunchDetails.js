@@ -33,7 +33,7 @@ class LaunchDetails extends Component {
                             <Typography variant="body1">{"Name of the launch site was " + (this.props.launch.launch_site !== undefined ? (this.props.launch.launch_site.site_name_long + " (" + this.props.launch.launch_site.site_name + ")") : "") + "."}</Typography><br/>
                             <Typography variant="body1" style={launchStyle}>{"Launch Status: " + (this.props.launch.launch_success ? "Success!" : "Failure!")}</Typography>
                             <Typography variant="body1" style={detailsStyle}>{"Details of the launch: " + this.props.launch.details}</Typography><br/>
-                            <Typography variant="body1" style={launchImg1}>A picture of the launch: </Typography><br/>
+                            <Typography variant="body1" style={launchImg1}>A picture of the launch: <br/></Typography>
                             <CardMedia component="img" style={launchImg2} alt={this.props.launch.mission_name} src={this.props.launch.links !== undefined ? (this.props.launch.links.flickr_images !== null ? this.props.launch.links.flickr_images[0] : "") : ""}/><br/>
                             <Typography variant="body1">To know more about the launch visit the following sites:</Typography><br/>
                             <ButtonGroup variant="contained" color="primary" aria-label="outlined primary button group">
