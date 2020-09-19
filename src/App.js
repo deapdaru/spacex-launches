@@ -7,7 +7,7 @@ import Footer from './components/layout/Footer';
 import axios from 'axios';
 import './App.css';
 import { withStyles } from "@material-ui/core/styles";
-import { Grid } from '@material-ui/core';
+import { Grid, Button } from '@material-ui/core';
 
 const styles = () => ({
   grid: {
@@ -29,6 +29,16 @@ class App extends Component {
     this.setState({ launches: response.data });
   }
 
+  reverseLaunches = () => {
+    let _launches = this.state.launches.reverse();
+    // console.log(_launches);
+    this.setState({
+      launches: _launches
+    });
+  }
+
+  
+
   render() {
     const { classes } = this.props;
     
@@ -38,9 +48,9 @@ class App extends Component {
         <Switch>
           <Route exact path='/' render={props => (
             <div>
-              {/* <div style={{padding: "20px 40px 0"}}>
-                <Button variant="outlined" color="primary">Filter</Button>
-              </div> */}
+              <div style={{padding: "20px 40px 0"}}>
+                <Button variant="outlined" color="primary" onClick={this.reverseLaunches}>Reverse Order</Button>
+              </div>
               <Grid container spacing={3} className={classes.grid} justify="center">
                 <Launches launches={this.state.launches} />
               </Grid>
