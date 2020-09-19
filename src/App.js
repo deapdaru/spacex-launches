@@ -26,29 +26,21 @@ class App extends Component {
 
   getLaunches = async () => {
     let response = await axios.get("https://api.spacexdata.com/v3/launches?limit=15");
-    // console.log(response.data);
-    this.setState({ launches: response.data })
+    this.setState({ launches: response.data });
   }
-
-  // reverseLaunches = () => {
-  //   let reverseArray = [];
-  //   for (let i = 0; i < this.state.launches.length; i++) {
-  //     reverseArray[i] = this.state.launches[this.state.launches.length - i - 1];
-  //   }
-  //   this.setState({ launches: reverseArray })
-  // }
 
   render() {
     const { classes } = this.props;
+    
     return (
       <Router>
         <Header />
         <Switch>
           <Route exact path='/' render={props => (
             <div>
-              <div style={{padding: "20px 40px 0"}}>
+              {/* <div style={{padding: "20px 40px 0"}}>
                 <Button variant="outlined" color="primary">Filter</Button>
-              </div>
+              </div> */}
               <Grid container spacing={3} className={classes.grid} justify="center">
                 <Launches launches={this.state.launches} />
               </Grid>
