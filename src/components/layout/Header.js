@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-// import { Link } from 'react-router-dom';
 
 class Header extends Component {
   render() {
@@ -20,7 +19,8 @@ const titleStyle = {
   fontSize: "3.5em",
   color: "#fff",
   textDecoration: "none",
-  textAlign: "center"
+  textAlign: "center",
+  fontStyle: "italic"
 }
 
 export default Header;

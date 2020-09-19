@@ -17,7 +17,6 @@ class LaunchPage extends Component {
 
     getLaunch = async () => {
         let response = await axios.get(`https://api.spacexdata.com/v3/launches${this.props.location.pathname}`);
-        // console.log(response.data);
         this.setState({ launch: response.data })
     }
 
