@@ -20,7 +20,6 @@ class LaunchDetails extends Component {
             maxWidth: "500px",
             margin: "0 auto"
         }
-        console.log(this.props.launch.links !== undefined ? (this.props.launch.links.flickr_images[0] !== undefined ? "block" : "none") : "none");
         return (
             <Grid container>
                 <Grid item xs={1}></Grid>
