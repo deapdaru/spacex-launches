@@ -7,7 +7,7 @@ import Footer from './components/layout/Footer';
 import axios from 'axios';
 import './App.css';
 import { withStyles } from "@material-ui/core/styles";
-import { Button, Grid } from '@material-ui/core';
+import { Grid } from '@material-ui/core';
 
 const styles = () => ({
   grid: {
