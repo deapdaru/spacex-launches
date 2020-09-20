@@ -93,7 +93,7 @@ class App extends Component {
               </Grid>
             </div>
           )} />
-          <Route path="/:flight_number" component={LaunchPage} />
+          <Route exact path="/:flight_number" component={LaunchPage} />
         </Switch>
         <Footer />
       </Router>
