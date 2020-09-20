@@ -18,7 +18,7 @@ const styles = () => ({
 class App extends Component {
   state = {
     launches: [],
-    start: "2006-03-25",
+    start: "2006-03-24",
     end: new Date().toISOString().split("T")[0]
   };
 
@@ -70,7 +70,7 @@ class App extends Component {
                       id="start"
                       label="Start Date"
                       type="date"
-                      defaultValue="2006-03-25"
+                      defaultValue="2006-03-24"
                     />
                     <TextField
                       style={{margin: "3px"}}
