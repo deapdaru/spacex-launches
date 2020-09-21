@@ -7,7 +7,7 @@ import Launches from './components/Launches';
 import LaunchPage from './components/pages/LaunchPage';
 import './App.css';
 import { withStyles } from "@material-ui/core/styles";
-import { Grid, Button, TextField, Divider } from '@material-ui/core';
+import { Grid, Button, TextField, Divider, Backdrop, CircularProgress } from '@material-ui/core';
 
 const styles = () => ({
   grid: {
@@ -19,7 +19,8 @@ class App extends Component {
   state = {
     launches: [],
     start: "2006-03-24",
-    end: new Date().toISOString().split("T")[0]
+    end: new Date().toISOString().split("T")[0],
+    open: false
   };
 
   componentDidMount() {
@@ -47,8 +48,10 @@ class App extends Component {
   }
 
   getNewLaunches = async () => {
+    this.setState({ open: !this.state.open});
     let response = await axios.get(`https://api.spacexdata.com/v3/launches?start=${this.state.start}&end=${this.state.end}`);
-    this.setState({ launches: response.data })
+    this.setState({ launches: response.data });
+    this.setState({ open: !this.state.open});
   }
 
   render() {
@@ -83,6 +86,9 @@ class App extends Component {
                       defaultValue={new Date().toISOString().split("T")[0]}
                     />
                     <Button variant="outlined" color="primary" style={{margin: "3px"}} onClick={this.getNewLaunches}>Filter Launches</Button>
+                    <Backdrop style={{zIndex: "1"}} open={this.state.open}>
+                      <CircularProgress color="primary" />
+                    </Backdrop>
                     <Button variant="outlined" color="primary" style={{margin: "3px"}} onClick={this.reverseLaunches}>Reverse Order</Button>
                   </Grid>
                 </form>
