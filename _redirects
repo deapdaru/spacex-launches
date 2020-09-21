@@ -1,4 +1,3 @@
 # handling redirects on netlify
 
-/			        /	    301
-/:flight_number		/		301
+/* /index.html 200
