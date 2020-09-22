@@ -14,7 +14,7 @@ class DashBoard extends Component {
               variant="outlined"
               color="primary"
               id="start"
-              label="Start Date"
+              label={this.props.start > this.props.end ? "Enter valid Start Date" : "Start Date"}
               type="date"
               defaultValue="2006-03-24"
             />
@@ -25,7 +25,7 @@ class DashBoard extends Component {
               variant="outlined"
               color="primary"
               id="end"
-              label="End Date"
+              label={this.props.start > this.props.end ? "Enter valid End Date" : "End Date"}
               type="date"
               defaultValue={new Date().toISOString().split("T")[0]}
             />
