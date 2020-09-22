@@ -8,6 +8,7 @@ class DashBoard extends Component {
         <form noValidate>
           <Grid container justify="space-around">
             <TextField
+              error={this.props.start > this.props.end}
               style={{margin: "3px"}}
               onInput={this.props.setStartDate}
               variant="outlined"
@@ -18,6 +19,7 @@ class DashBoard extends Component {
               defaultValue="2006-03-24"
             />
             <TextField
+              error={this.props.start > this.props.end}
               style={{margin: "3px"}}
               onInput={this.props.setEndDate}
               variant="outlined"
@@ -27,7 +29,8 @@ class DashBoard extends Component {
               type="date"
               defaultValue={new Date().toISOString().split("T")[0]}
             />
-            <Button 
+            <Button
+              disabled = {this.props.start > this.props.end}
               variant="outlined" 
               color="primary" 
               style={{margin: "3px"}} 

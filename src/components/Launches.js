@@ -59,7 +59,9 @@ class Launches extends Component {
         const options = { year: 'numeric', month: 'long', day: 'numeric' };
         return (
             <div>
-                <DashBoard 
+                <DashBoard
+                    start={this.state.start}
+                    end={this.state.end}
                     setStartDate={this.setStartDate} 
                     setEndDate={this.setEndDate} 
                     reverseLaunches={this.reverseLaunches} 
