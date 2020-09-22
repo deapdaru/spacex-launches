@@ -11,7 +11,7 @@ class Header extends Component {
 }
 
 const headerStyle = {
-  backgroundColor: "#2196f3",
+  backgroundColor: "#3f51b5",
   padding: "40px"
 }
 
