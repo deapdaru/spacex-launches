@@ -8,6 +8,7 @@ import DashBoard from './DashBoard';
 const styles = () => ({
   card: {
     backgroundColor: "#ddd",
+    height: "100%"
   },
   grid: {
     padding: "20px 40px 0",
